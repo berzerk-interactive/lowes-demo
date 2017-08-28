@@ -1,0 +1,30 @@
+<div id="products">
+  <h1>products</h1>
+  <div class="hero">
+    <img src="{{$ctrl.hero.imageUrls.md}}" alt="">
+    <section>
+      <p>{{$ctrl.hero.brand}} {{$ctrl.hero.description}}</p>
+      <ul>
+        <li ng-repeat="bullet in $ctrl.hero.marketingBullets">
+          {{bullet}}
+        </li>
+      </ul>
+    </section>
+    <div>
+      <p>{{$ctrl.hero.pricing.price.retail}}</p>
+      <a ng-click="$ctrl.addToCart(ev)">add to cart</a>
+    </div>
+  </div>
+  <ul>
+    <li ng-repeat="product in $ctrl.data" ng-mouseover="$ctrl.productHover(product)">
+      <img src="{{product.imageUrls.sm}}" alt="">
+      <p>{{product.brand}} {{product.description}}</p>
+      <p>{{product.pricing.price.retail}}</p>
+      <a href="">view more</a>
+      <!-- <img src="{{product.imageUrls.md}}" alt=""> -->
+      <!-- <img src="{{product.imageUrls.lg}}" alt="">
+      <img src="{{product.imageUrls.xl}}" alt=""> -->
+      <!-- {{product | json}} -->
+    </li>
+  </ul>
+</div>
