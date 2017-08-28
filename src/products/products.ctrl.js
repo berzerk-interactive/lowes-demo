@@ -1,10 +1,12 @@
 import './products.scss'
+import './windows8loader.scss'
 
 class productsCtrl {
-  constructor(sidenavService, productsService, $mdDialog) {
+  constructor(sidenavService, productsService, $mdDialog, $scope) {
     this.sidenavService = sidenavService;
     this.productsService = productsService;
     this.$mdDialog = $mdDialog;
+    this.$scope = $scope;
     this.data = []
     this.hero = null
   }
@@ -29,14 +31,16 @@ class productsCtrl {
     );
   }
   $onInit(){
-    this.paragraph = 'This state lazy loads moment js on state change to it';
+    console.log('$onInit');
     this.productsService.getProducts().then(resp => {
+      console.log('then');
       this.data = resp.productList
       this.hero = this.data[0]
       console.log(this.data);
+      this.$scope.apply();
     })
 
   }
 }
-productsCtrl.$inject = ['sidenavService', 'productsService', '$mdDialog'];
+productsCtrl.$inject = ['sidenavService', 'productsService', '$mdDialog', '$scope'];
 export default productsCtrl;

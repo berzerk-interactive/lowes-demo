@@ -4,7 +4,12 @@
   "description": "lowes code test",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "karma start",
+    "dev": "webpack-dev-server --open --history-api-fallback --inline --progress",
+    "start": "http-server dist",
+    "build": "rimraf dist && NODE_ENV=production webpack --bail --progress --profile",
+    "server": "webpack-dev-server --history-api-fallback --inline --progress",
+    "test-watch": "karma start --auto-watch --no-single-run"
   },
   "keywords": [
     "lowes",
@@ -15,14 +20,6 @@
   },
   "author": "Lee Blazek <info@berzerk.co.nz> (http://berzerk.co.nz/)",
   "license": "ISC",
-  "scripts": {
-    "test": "karma start",
-    "dev": "webpack-dev-server --open --history-api-fallback --inline --progress",
-    "start": "http-server dist",
-    "build": "rimraf dist && webpack --bail --progress --profile",
-    "server": "webpack-dev-server --history-api-fallback --inline --progress",
-    "test-watch": "karma start --auto-watch --no-single-run"
-  },
   "dependencies": {
     "@uirouter/angularjs": "1.0.3",
     "angular": "^1.6.4",
@@ -32,8 +29,10 @@
     "angular-resource": "^1.6.4",
     "angular-sanitize": "^1.6.4",
     "babel-polyfill": "^6.23.0",
+    "express": "^4.15.4",
     "moment": "^2.18.1",
-    "oclazyload": "^1.1.0"
+    "oclazyload": "^1.1.0",
+    "request": "^2.81.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.0",

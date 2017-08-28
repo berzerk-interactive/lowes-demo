@@ -201,6 +201,10 @@ module.exports = function makeWebpackConfig() {
         }
       }
     }),
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
+      DEBUG: false
+    }),
     new webpack.ProvidePlugin({
       Promise: 'es6-promise-promise'
     }),

@@ -1,7 +1,25 @@
-<div id="products">
+<div class="windows8" ng-if="$ctrl.data.length === 0">
+  <div class="wBall" id="wBall_1">
+    <div class="wInnerBall"></div>
+  </div>
+  <div class="wBall" id="wBall_2">
+    <div class="wInnerBall"></div>
+  </div>
+  <div class="wBall" id="wBall_3">
+    <div class="wInnerBall"></div>
+  </div>
+  <div class="wBall" id="wBall_4">
+    <div class="wInnerBall"></div>
+  </div>
+  <div class="wBall" id="wBall_5">
+    <div class="wInnerBall"></div>
+  </div>
+</div>
+<div id="products" ng-if="$ctrl.data.length !== 0">
   <h1>products</h1>
   <div class="hero">
-    <img src="{{$ctrl.hero.imageUrls.md}}" alt="">
+    <img ng-src="{{$ctrl.hero.imageUrls.md}}" alt="">
+
     <section>
       <p>{{$ctrl.hero.brand}} {{$ctrl.hero.description}}</p>
       <ul>
@@ -17,7 +35,7 @@
   </div>
   <ul>
     <li ng-repeat="product in $ctrl.data" ng-mouseover="$ctrl.productHover(product)">
-      <img src="{{product.imageUrls.sm}}" alt="">
+      <img ng-src="{{product.imageUrls.sm}}" alt="">
       <p>{{product.brand}} {{product.description}}</p>
       <p>{{product.pricing.price.retail}}</p>
       <a href="">view more</a>
